@@ -1,0 +1,33 @@
+def display_Path_to_Princess(N, grid): 
+    # Locate bot ('m') and princess ('p') 
+    for i in range(N): 
+        for j in range(N): 
+            if grid[i][j] == 'm': 
+                bot_x, bot_y = i, j 
+            elif grid[i][j] == 'p': 
+                princess_x, princess_y = i, j 
+ 
+    # Calculate and print vertical moves 
+    if bot_x > princess_x: 
+        for _ in range(bot_x - princess_x): 
+            print("UP") 
+    elif bot_x < princess_x: 
+        for _ in range(princess_x - bot_x): 
+            print("DOWN") 
+ 
+    # Calculate and print horizontal moves 
+    if bot_y > princess_y: 
+        for _ in range(bot_y - princess_y): 
+            print("LEFT") 
+    elif bot_y < princess_y: 
+        for _ in range(princess_y - bot_y): 
+            print("RIGHT") 
+ 
+# -------------------------- 
+# Main Input Code to Test It 
+# -------------------------- 
+if __name__ == "__main__": 
+N = int(input("Enter grid size (odd number from 3 to 99): ")) 
+print("Enter grid rows (each row with {} characters):".format(N)) 
+grid = [input().strip() for _ in range(N)] 
+display_Path_to_Princess(N, grid) 
